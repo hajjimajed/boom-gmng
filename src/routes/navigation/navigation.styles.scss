@@ -1,0 +1,106 @@
+.navigation {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #46494c;
+    margin: 0;
+    padding: 0;
+
+    .left-navigation {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+
+        .main-logo-container {
+            height: 100%;
+            width: 55px;
+            margin-left: 20px;
+
+            .main-logo {
+                width: 45px;
+                height: 45px;
+                margin-top: 5px;
+            }
+
+        }
+
+
+    }
+
+    .right-navigation {
+        display: flex;
+        height: 100%;
+        justify-content: flex-end;
+        align-items: center;
+
+        .nav-link:first-child {
+            width: 120px;
+            flex-direction: row;
+
+            .user-logo {
+                filter: invert(97%) sepia(97%) saturate(12%) hue-rotate(219deg) brightness(103%) contrast(103%);
+                width: 20px;
+                height: 20px;
+                margin-right: 15px;
+            }
+        }
+
+        .nav-link:last-child {
+            width: 120px;
+            height: 55px;
+            background: #ef233c;
+            color: white;
+
+            &:hover {
+                background: #ff5064;
+            }
+        }
+
+
+    }
+
+    .nav-link {
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: #dcdcdd;
+        width: 80px;
+        text-transform: uppercase;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // border-bottom: #ef233c 6px solid;
+        position: relative;
+        overflow: hidden;
+        transition: 0.2s ease-in-out all;
+
+        &:hover {
+            .underline {
+                transform: translateY(0px);
+            }
+
+            color: #ffffff;
+        }
+
+        .underline {
+            width: 100%;
+            height: 7px;
+            background-color: #ef233c;
+            position: absolute;
+            bottom: -3px;
+            transform: translateY(7px);
+            transition: 0.2s ease-in-out all;
+
+        }
+    }
+
+
+}
