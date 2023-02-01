@@ -1,0 +1,26 @@
+.button-container {
+    width: 320px;
+    height: 60px;
+    text-align: center;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background-color: #ef233c;
+    color: #ffffff;
+    font-size: 13px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #ff5064;
+    }
+
+    &.google-sign-in {
+        background-color: #d4a373;
+
+        &:hover {
+            background-color: #000000;
+        }
+    }
+}
