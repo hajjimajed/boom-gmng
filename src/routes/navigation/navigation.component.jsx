@@ -5,11 +5,10 @@ import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as MainLogo } from '../../assets/boom-logo.svg';
 import { ReactComponent as UserLogo } from '../../assets/logIn.svg'
 
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
 
-import { onAuthStateChangedListener, signOutUser, createUserDocumentFromAuth } from '../../utils/firebase/firebase';
-import { async } from '@firebase/util';
+import { signOutUser } from '../../utils/firebase/firebase';
 
 const Navigation = () => {
 
