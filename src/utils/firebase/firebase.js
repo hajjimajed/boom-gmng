@@ -90,3 +90,23 @@ export const signInAuthWithEmailAndPassword = async (email, password) => {
 }
 
 export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
+
+/*
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        const data = user.providerData[0];
+        const { displayName } = data;
+        console.log(displayName)
+        // ...
+    } else {
+        // User is signed out
+        // ...
+    }
+});
+*/

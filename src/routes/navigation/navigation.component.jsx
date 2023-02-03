@@ -5,7 +5,21 @@ import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as MainLogo } from '../../assets/boom-logo.svg';
 import { ReactComponent as UserLogo } from '../../assets/logIn.svg'
 
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../../contexts/user.context';
+
+import { onAuthStateChangedListener, signOutUser, createUserDocumentFromAuth } from '../../utils/firebase/firebase';
+import { async } from '@firebase/util';
+
 const Navigation = () => {
+
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+
+    const signOutHandler = async () => {
+        await signOutUser();
+        setCurrentUser(null);
+    }
+
 
     return (
         <Fragment>
@@ -21,12 +35,31 @@ const Navigation = () => {
                     <Link to='/support' className="nav-link">Support <div className='underline'></div></Link>
                 </div>
                 <div className='right-navigation'>
-                    <Link to='/login' className="nav-link">
-                        <UserLogo className='user-logo' />
-                        <span>Log in</span>
-                        <div className='underline'></div>
-                    </Link>
-                    <Link to='/register' className="nav-link">register</Link>
+
+                    {
+                        currentUser ? (
+                            <a onClick={signOutHandler} className="nav-link">
+                                <UserLogo className='user-logo' />
+                                <span>Log Out</span>
+                                <div className='underline'></div>
+                            </a>
+                        ) : (<Link to='/login' className="nav-link">
+                            <UserLogo className='user-logo' />
+                            <span>Log in</span>
+                            <div className='underline'></div>
+                        </Link>)
+                    }
+
+                    {
+
+                        currentUser ? (
+
+                            <div className="nav-link">{currentUser.displayName}</div>
+                        ) : (
+                            <Link to='/register' className="nav-link">register</Link>
+                        )
+                    }
+
                 </div>
             </div>
 

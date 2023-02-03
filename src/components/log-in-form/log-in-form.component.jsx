@@ -7,8 +7,9 @@ import { ReactComponent as MainLogo } from '../../assets/boom-logo.svg';
 import { ReactComponent as GoogleLogo } from '../../assets/google.svg';
 
 import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthWithEmailAndPassword } from '../../utils/firebase/firebase';
-import { useState } from 'react';
-import { async } from '@firebase/util';
+import { useState, useContext } from 'react';
+
+import { UserContext } from '../../contexts/user.context';
 
 const defaultFormFields = {
     email: '',
@@ -17,13 +18,16 @@ const defaultFormFields = {
 
 const LogInForm = () => {
 
+    const [formFields, setFormFields] = useState(defaultFormFields);
+    const { email, password } = formFields;
+
+    const { setCurrentUser } = useContext(UserContext);
+
     const signInWithGoogle = async () => {
         const { user } = await signInWithGooglePopup();
         await createUserDocumentFromAuth(user);
+        setCurrentUser(user);
     }
-
-    const [formFields, setFormFields] = useState(defaultFormFields);
-    const { email, password } = formFields;
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
@@ -34,6 +38,7 @@ const LogInForm = () => {
 
         try {
             const { user } = await signInAuthWithEmailAndPassword(email, password);
+            setCurrentUser(user);
 
             resetFormFields();
         } catch (error) {
