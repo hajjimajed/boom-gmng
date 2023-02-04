@@ -14,6 +14,7 @@ const Navigation = () => {
 
     const { currentUser, setCurrentUser } = useContext(UserContext);
 
+
     const signOutHandler = async () => {
         await signOutUser();
         setCurrentUser(null);
@@ -53,7 +54,7 @@ const Navigation = () => {
 
                         currentUser ? (
 
-                            <div className="nav-link">{currentUser.displayName}</div>
+                            <div className="nav-link">{currentUser.email}</div>
                         ) : (
                             <Link to='/register' className="nav-link">register</Link>
                         )
