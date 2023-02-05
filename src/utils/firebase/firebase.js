@@ -6,6 +6,7 @@ import {
     doc,
     getDoc,
     setDoc,
+    getUser,
     collection,
     writeBatch,
     query,
@@ -93,20 +94,31 @@ export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
 
+export const currentUserDatas = () => {
+    onAuthStateChanged(auth, async (user) => {
 
-/*
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        const data = user.providerData[0];
-        const { displayName } = data;
-        console.log(displayName)
-        // ...
-    } else {
-        // User is signed out
-        // ...
-    }
-});
-*/
+        // User logged in already or has just logged in.
+        console.log(user.uid);
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        const datas = docSnap.data()
+        console.log(datas)
+
+
+    });
+    return 'yes';
+}
+
+const user = auth.currentUser;
+
+
+export const currentUserData = async (currentUser) => {
+
+    const docRef = doc(db, "users", currentUser.uid);
+    const docSnap = await getDoc(docRef);
+    const datas = docSnap.data()
+    return datas;
+
+}
+

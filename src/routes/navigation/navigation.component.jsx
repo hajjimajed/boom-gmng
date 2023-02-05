@@ -1,5 +1,5 @@
 import './navigation.styles.scss'
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 import { ReactComponent as MainLogo } from '../../assets/boom-logo.svg';
@@ -9,6 +9,8 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
 
 import { signOutUser } from '../../utils/firebase/firebase';
+
+import { currentUserData } from '../../utils/firebase/firebase';
 
 const Navigation = () => {
 
@@ -20,10 +22,19 @@ const Navigation = () => {
         setCurrentUser(null);
     }
 
+    const userCheck = async () => {
+
+        const res = await currentUserData(currentUser);
+        return res
+
+    }
+
+
+
+
 
     return (
         <Fragment>
-
 
             <div className='navigation'>
                 <div className='left-navigation'>
