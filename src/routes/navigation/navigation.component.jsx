@@ -10,8 +10,8 @@ import { UserContext } from '../../contexts/user.context';
 import { useEffect } from 'react';
 
 import { signOutUser } from '../../utils/firebase/firebase';
-
 import { currentUserData } from '../../utils/firebase/firebase';
+
 
 const Navigation = () => {
 

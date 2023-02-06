@@ -11,19 +11,20 @@ export const ProductsProvider = ({ children }) => {
 
     const [productsMap, setProductsMap] = useState({});
 
+    useEffect(() => {
 
-    /*   useEffect(() => {
-   
-           const getProductsMap = async () => {
-   
-   
-   
-           }
-   
-           getProductsMap()
-   
-   
-       }, []) */
+        const getProductsMap = async () => {
+            const productsMap = getCategoriesAndDocuments('products');
+
+            setProductsMap(productsMap);
+
+
+        }
+
+        getProductsMap()
+
+
+    }, [])
 
 
     /* useEffect(() => {
