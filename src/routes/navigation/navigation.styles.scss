@@ -48,6 +48,13 @@
                 height: 20px;
                 margin-right: 15px;
             }
+
+            .logged-user-logo {
+                filter: invert(66%) sepia(45%) saturate(3259%) hue-rotate(118deg) brightness(99%) contrast(95%);
+                width: 20px;
+                height: 20px;
+                margin-right: 15px;
+            }
         }
 
         .nav-link:last-child {

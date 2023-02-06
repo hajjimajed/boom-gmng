@@ -21,7 +21,7 @@ const LogInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
-    const { setCurrentUser } = useContext(UserContext);
+    const { currentUser, setCurrentUser } = useContext(UserContext);
 
     const signInWithGoogle = async () => {
         const { user } = await signInWithGooglePopup();
@@ -60,26 +60,40 @@ const LogInForm = () => {
 
     return (
         <div className="log-in-form-container">
-            <MainLogo className='logo' />
 
-            <form onSubmit={handleSubmit} className='login-form' action="" >
+            {
+                currentUser ? (
+                    <div className='welcome-user'>
+                        <h1>Welcome Back</h1>
+                        <Button>Check Our News</Button>
+                    </div>
+                ) : (
+                    <>
+                        <MainLogo className='logo' />
+
+                        <form onSubmit={handleSubmit} className='login-form' action="" >
 
 
-                <FormInput label="Email" required type="email" name="email" onChange={handleChange} value={email} />
+                            <FormInput label="Email" required type="email" name="email" onChange={handleChange} value={email} />
 
-                <FormInput label="Password" required type="password" name="password" onChange={handleChange} value={password} />
+                            <FormInput label="Password" required type="password" name="password" onChange={handleChange} value={password} />
 
-                <div className='login-btn-container'>
-                    <Button type='submit' >Log in now</Button>
-                    <button onClick={signInWithGoogle} className='google-btn'>
-                        <div>
-                            <GoogleLogo />
-                        </div>
+                            <div className='login-btn-container'>
+                                <Button type='submit' >Log in now</Button>
+                                <button onClick={signInWithGoogle} className='google-btn'>
+                                    <div>
+                                        <GoogleLogo />
+                                    </div>
 
-                        <span>Sign In With Google</span>
-                    </button>
-                </div>
-            </form>
+                                    <span>Sign In With Google</span>
+                                </button>
+                            </div>
+                        </form>
+                    </>
+                )
+            }
+
+
         </div>
     )
 

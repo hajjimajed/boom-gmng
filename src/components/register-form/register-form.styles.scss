@@ -7,7 +7,23 @@
     justify-content: space-evenly;
     align-items: center;
     border-radius: 3px;
+    margin: 50px 0;
 
+    .registering-done {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+
+        .check-logo {
+            margin-top: -150px;
+            filter: invert(62%) sepia(64%) saturate(730%) hue-rotate(113deg) brightness(93%) contrast(95%);
+        }
+
+        h1 {
+            margin: 50px 0;
+        }
+    }
 
 
     .logo {

@@ -92,33 +92,59 @@ export const signInAuthWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
-
-export const currentUserDatas = () => {
-    onAuthStateChanged(auth, async (user) => {
-
-        // User logged in already or has just logged in.
-        console.log(user.uid);
-        const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef);
-
-        const datas = docSnap.data()
-        console.log(datas)
 
 
-    });
-    return 'yes';
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+
+    const collectionRef = collection(db, collectionKey);
+    const batch = writeBatch(db);
+
+    objectsToAdd.forEach((object) => {
+        const docRef = doc(collectionRef, object.title.toLowerCase());
+
+        batch.set(docRef, object);
+    })
+
+
+    await batch.commit();
+
+    console.log('done');
+
 }
 
-const user = auth.currentUser;
+export const getCategoriesAndDocuments = async (collectionKey) => {
+    const collectionRef = collection(db, collectionKey);
+    const q = query(collectionRef);
+
+    const querySnapshot = await getDocs(q);
+    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+        const { title, items } = docSnapshot.data();
+        acc[title.toLowerCase()] = items;
+        return acc;
+    }, {})
+
+
+
+    return categoryMap;
+
+}
+
+
 
 
 export const currentUserData = async (currentUser) => {
+    if (currentUser) {
 
-    const docRef = doc(db, "users", currentUser.uid);
-    const docSnap = await getDoc(docRef);
-    const datas = docSnap.data()
-    return datas;
+        const docRef = doc(db, "users", currentUser.uid);
+        const docSnap = await getDoc(docRef);
+        const datas = docSnap.data()
+        return datas;
+
+    }
+
+
+
 
 }
 

@@ -7,6 +7,7 @@ import { ReactComponent as UserLogo } from '../../assets/logIn.svg'
 
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
+import { useEffect } from 'react';
 
 import { signOutUser } from '../../utils/firebase/firebase';
 
@@ -17,17 +18,31 @@ const Navigation = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext);
 
 
+
     const signOutHandler = async () => {
         await signOutUser();
         setCurrentUser(null);
     }
 
-    const userCheck = async () => {
 
-        const res = await currentUserData(currentUser);
-        return res
+    const [userMap, setUserMap] = useState({});
+    const [done, setDone] = useState(false)
+    useEffect(() => {
 
-    }
+        const userCheck = async () => {
+
+            const res = await currentUserData(currentUser);
+            setUserMap(res);
+            setDone(true)
+
+
+        }
+
+        userCheck()
+
+
+    }, [])
+
 
 
 
@@ -50,7 +65,7 @@ const Navigation = () => {
                     {
                         currentUser ? (
                             <a onClick={signOutHandler} className="nav-link">
-                                <UserLogo className='user-logo' />
+                                <UserLogo className='logged-user-logo' />
                                 <span>Log Out</span>
                                 <div className='underline'></div>
                             </a>
@@ -65,7 +80,7 @@ const Navigation = () => {
 
                         currentUser ? (
 
-                            <div className="nav-link">{currentUser.email}</div>
+                            <div className="nav-link">{currentUser.displayName}</div>
                         ) : (
                             <Link to='/register' className="nav-link">register</Link>
                         )
