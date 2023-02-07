@@ -18,7 +18,6 @@ const Navigation = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext);
 
 
-
     const signOutHandler = async () => {
         await signOutUser();
         setCurrentUser(null);
@@ -50,6 +49,8 @@ const Navigation = () => {
 
     return (
         <Fragment>
+
+
 
             <div className='navigation'>
                 <div className='left-navigation'>
