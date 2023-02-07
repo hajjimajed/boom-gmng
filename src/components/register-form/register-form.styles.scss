@@ -1,13 +1,14 @@
 .register-form-container {
     height: 650px;
     width: 450px;
-    background-color: #353535;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     border-radius: 3px;
     margin: 50px 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
     .registering-done {
         display: flex;

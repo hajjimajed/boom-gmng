@@ -5,19 +5,20 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
     .store-link {
         font-size: 18px;
         font-weight: 600;
-        color: #adb5bd;
+        color: #000000;
         margin-left: 50px;
         text-transform: capitalize;
         transition: 0.15s ease-in-out all;
         cursor: pointer;
 
         &:hover {
-            color: #ffffff;
+            color: #ff5064;
         }
 
         &:first-child {
