@@ -5,17 +5,22 @@ import { Link, Outlet } from 'react-router-dom';
 import { ReactComponent as MainLogo } from '../../assets/boom-logo.svg';
 import { ReactComponent as UserLogo } from '../../assets/logIn.svg'
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../../contexts/user.context';
-import { useEffect } from 'react';
+import { CartContext } from '../../contexts/cart-context';
 
 import { signOutUser } from '../../utils/firebase/firebase';
 import { currentUserData } from '../../utils/firebase/firebase';
+
+import CartIcon from '../../components/cart-icon/cart-icon.component';
+import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 
 
 const Navigation = () => {
 
     const { currentUser, setCurrentUser } = useContext(UserContext);
+
+    const { isCartOpen } = useContext(CartContext);
 
 
     const signOutHandler = async () => {
@@ -59,7 +64,13 @@ const Navigation = () => {
                     </Link>
                     <Link to='/store' className="nav-link">store <div className='underline'></div> </Link>
                     <Link to='/news' className="nav-link">News <div className='underline'></div></Link>
-                    <Link to='/support' className="nav-link">Support <div className='underline'></div></Link>
+                    <CartIcon />
+                    {
+                        isCartOpen && <CartDropdown />
+                    }
+
+
+
                 </div>
                 <div className='right-navigation'>
 
