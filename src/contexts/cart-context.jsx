@@ -35,11 +35,38 @@ export const CartProvider = ({ children }) => {
     const [cartCount, setCartCount] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
 
+    useEffect(() => {
+        const newCartCount = cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)
+        setCartCount(newCartCount);
+    }, [cartItems])
+
+    useEffect(() => {
+        const newCartTotal = cartItems.reduce((total, cartItem) => total + cartItem.price * cartItem.quantity, 0)
+        setCartTotal(newCartTotal);
+    }, [cartItems])
+
     const addItemToCart = (productToAdd) => {
         setCartItems(addCartItem(cartItems, productToAdd));
     }
 
-    const value = { isCartOpen, cartItems, setIsCartOpen, addItemToCart }
+    const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
+
+
+    useEffect(() => {
+        let prevItems = JSON.parse(localStorage.getItem('cart')) || [];
+        setCartItems(prevItems)
+        setIsInitiallyFetched(true)
+    }, [])
+
+    useEffect(() => {
+        if (isInitiallyFetched) {
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+        }
+    }, [cartItems]);
+
+
+
+    const value = { isCartOpen, cartItems, setIsCartOpen, addItemToCart, cartCount, cartTotal }
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
 

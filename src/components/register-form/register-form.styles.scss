@@ -10,6 +10,11 @@
     margin: 50px 0;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
+    .register-form {
+        width: 80%;
+        margin-top: -50px;
+    }
+
     .registering-done {
         display: flex;
         flex-direction: column;
@@ -30,5 +35,6 @@
     .logo {
         width: 50px;
         height: auto;
+        margin-top: -50px;
     }
 }

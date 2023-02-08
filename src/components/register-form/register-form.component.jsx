@@ -74,7 +74,7 @@ const RegisterForm = () => {
                     (
                         <>
                             <MainLogo className='logo' />
-                            <form action="" onSubmit={handleSubmit}>
+                            <form action="" className='register-form' onSubmit={handleSubmit}>
 
                                 <FormInput onChange={handleChange} label="Display Name" required type="text" name="displayName" value={displayName} />
 

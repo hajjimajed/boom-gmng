@@ -36,9 +36,14 @@
                 position: absolute;
                 top: 20px;
                 right: 20px;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
                 &:hover {
-                    background-color: #eb646f;
+                    background-color: #ffffff;
+
+                    .add-logo {
+                        filter: invert(36%) sepia(18%) saturate(6880%) hue-rotate(332deg) brightness(91%) contrast(99%);
+                    }
                 }
 
                 .add-logo {

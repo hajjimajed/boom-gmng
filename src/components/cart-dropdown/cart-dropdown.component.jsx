@@ -12,7 +12,7 @@ import { CartContext } from '../../contexts/cart-context'
 
 const CartDropdown = () => {
 
-    const { cartItems } = useContext(CartContext);
+    const { cartItems, cartTotal, cartCount } = useContext(CartContext);
 
     return (
         <motion.div
@@ -26,11 +26,11 @@ const CartDropdown = () => {
             <div className='cart-header'>
                 <div className='cart-dropdown-logo'>
                     <ShoppingBag className='shopping-icon'></ShoppingBag>
-                    <span className='item-count'>0</span>
+                    <span className='item-count'>{cartCount}</span>
                 </div>
                 <div className='cart-total'>
                     <span>total:</span>
-                    <span className='total-price'>$299.000</span>
+                    <span className='total-price'>${cartTotal}</span>
                 </div>
             </div>
             <div className='cart-items'>
@@ -38,7 +38,7 @@ const CartDropdown = () => {
                     cartItems.map(cartItem => <CartItem key={cartItem.name} cartItem={cartItem} />)
                 }
             </div>
-            <button>chekout</button>
+            <Button buttonType='checkout'>chekout</Button>
         </motion.div>
     )
 
