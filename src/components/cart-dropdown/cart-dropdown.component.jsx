@@ -10,9 +10,18 @@ import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/cart-context'
 
+import { useNavigate } from 'react-router-dom'
+
 const CartDropdown = () => {
 
     const { cartItems, cartTotal, cartCount } = useContext(CartContext);
+
+    const navigate = useNavigate();
+
+    const goToCheckoutHandler = () => {
+        navigate('/checkout')
+    }
+
 
     return (
         <motion.div
@@ -38,7 +47,7 @@ const CartDropdown = () => {
                     cartItems.map(cartItem => <CartItem key={cartItem.name} cartItem={cartItem} />)
                 }
             </div>
-            <Button buttonType='checkout'>chekout</Button>
+            <Button onClick={goToCheckoutHandler} buttonType='checkout'>chekout</Button>
         </motion.div>
     )
 

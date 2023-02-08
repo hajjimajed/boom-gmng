@@ -15,6 +15,24 @@ const addCartItem = (cartItems, productToAdd) => {
     return [...cartItems, { ...productToAdd, quantity: 1 }]
 }
 
+const removeCartItem = (cartItems, cartItemToRemove) => {
+    const existingCartItem = cartItems.find(
+        (cartItem) => cartItem.id === cartItemToRemove.id
+    )
+    if (existingCartItem.quantity === 1) {
+        return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove)
+    }
+
+    return cartItems.map((cartItem) => cartItem.id === cartItemToRemove.id ?
+        { ...cartItem, quantity: cartItem.quantity - 1 }
+        : cartItem
+    )
+}
+
+const clearCartItem = (cartItems, cartItemToClear) => {
+    return cartItems.filter(cartItem => cartItem.id !== cartItemToClear.id)
+}
+
 
 
 export const CartContext = createContext({
@@ -49,8 +67,18 @@ export const CartProvider = ({ children }) => {
         setCartItems(addCartItem(cartItems, productToAdd));
     }
 
-    const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
+    const removeItemFromCart = (cartItemToRemove) => {
+        setCartItems(removeCartItem(cartItems, cartItemToRemove));
+    }
 
+    const clearItemFromCart = (cartItemToClear) => {
+
+        setCartItems(clearCartItem(cartItems, cartItemToClear));
+
+    }
+
+
+    const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
 
     useEffect(() => {
         let prevItems = JSON.parse(localStorage.getItem('cart')) || [];
@@ -66,7 +94,7 @@ export const CartProvider = ({ children }) => {
 
 
 
-    const value = { isCartOpen, cartItems, setIsCartOpen, addItemToCart, cartCount, cartTotal }
+    const value = { isCartOpen, cartItems, setIsCartOpen, addItemToCart, removeItemFromCart, clearItemFromCart, cartCount, cartTotal }
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
 

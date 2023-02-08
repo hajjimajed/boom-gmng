@@ -5,6 +5,7 @@ import Navigation from './routes/navigation/navigation.component';
 import Register from './routes/register/register.component';
 import Login from './routes/log-in/log-in.component';
 import Store from './routes/store/store.component';
+import Checkout from './routes/checkout/checkout.component';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='support' />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
+        <Route path='checkout' element={<Checkout />} />
 
       </Route>
     </Routes>
