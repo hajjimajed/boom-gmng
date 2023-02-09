@@ -7,14 +7,37 @@ import { ReactComponent as ShoppingBag } from '../../assets/shopping-bag.svg'
 
 import { motion } from 'framer-motion'
 
-import { useContext } from 'react'
+import { useState, useRef, useEffect, useContext } from 'react'
 import { CartContext } from '../../contexts/cart-context'
 
 import { useNavigate } from 'react-router-dom'
 
+
+
+const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1
+    }
+};
+
+
 const CartDropdown = () => {
 
-    const { cartItems, cartTotal, cartCount } = useContext(CartContext);
+    const { cartItems, cartTotal, cartCount, isCartOpen, setIsCartOpen, toggleDropdown } = useContext(CartContext);
 
     const navigate = useNavigate();
 
@@ -23,14 +46,28 @@ const CartDropdown = () => {
     }
 
 
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                toggleDropdown();
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+
     return (
         <motion.div
-            initial={{ scale: 0, y: -200 }}
-            animate={{ scale: 1, y: 0 }}
-            transition={{
-                type: "keyframes",
-                duration: 0.2
-            }}
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            ref={dropdownRef}
             className='cart-dropdown-container'>
             <div className='cart-header'>
                 <div className='cart-dropdown-logo'>
@@ -44,7 +81,7 @@ const CartDropdown = () => {
             </div>
             <div className='cart-items'>
                 {
-                    cartItems.map(cartItem => <CartItem key={cartItem.name} cartItem={cartItem} />)
+                    cartItems.map(cartItem => <motion.div variants={item} key={cartItem.name}><CartItem key={cartItem.name} cartItem={cartItem} /> </motion.div>)
                 }
             </div>
             <Button onClick={goToCheckoutHandler} buttonType='checkout'>chekout</Button>

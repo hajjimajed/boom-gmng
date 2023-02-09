@@ -65,9 +65,7 @@ const Navigation = () => {
                     <Link to='/store' className="nav-link">store <div className='underline'></div> </Link>
                     <Link to='/news' className="nav-link">News <div className='underline'></div></Link>
                     <CartIcon />
-                    {
-                        isCartOpen && <CartDropdown />
-                    }
+
 
 
 

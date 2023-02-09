@@ -8,8 +8,6 @@ import { CartContext } from '../../contexts/cart-context'
 
 import { motion } from 'framer-motion'
 
-
-
 const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {

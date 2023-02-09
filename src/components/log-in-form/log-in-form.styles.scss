@@ -17,10 +17,27 @@
     .welcome-user {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
 
-        h1 {
-            margin-bottom: 50px;
+        span {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            h1 {
+                font-size: 35px;
+                text-transform: capitalize;
+            }
+
+            h1:first-child {
+                color: #06d6a0;
+                font-size: 30px;
+            }
         }
+
     }
 
     .login-form {

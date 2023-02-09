@@ -64,7 +64,10 @@ const LogInForm = () => {
             {
                 currentUser ? (
                     <div className='welcome-user'>
-                        <h1>Welcome Back</h1>
+                        <span>
+                            <h1>Welcome Back</h1>
+                            <h1>{currentUser.displayName}</h1>
+                        </span>
                         <Button>Check Our News</Button>
                     </div>
                 ) : (

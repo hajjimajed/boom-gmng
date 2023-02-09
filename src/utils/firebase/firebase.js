@@ -130,8 +130,7 @@ export const getCategoriesAndDocuments = async (collectionKey) => {
 
 }
 
-
-
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
 
 export const currentUserData = async (currentUser) => {
     if (currentUser) {
@@ -142,9 +141,5 @@ export const currentUserData = async (currentUser) => {
         return datas;
 
     }
-
-
-
-
 }
 

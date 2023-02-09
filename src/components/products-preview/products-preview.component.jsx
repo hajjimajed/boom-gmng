@@ -5,6 +5,27 @@ import ProductCard from '../product-card/product-card.component';
 import { useContext } from 'react';
 import { ProductsContext } from '../../contexts/products.context';
 
+import { motion } from 'framer-motion'
+
+const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1
+    }
+};
 
 
 const ProductsPreview = () => {
@@ -17,7 +38,11 @@ const ProductsPreview = () => {
 
     return (
         <div className='category-preview-container'>
-            <div className='preview'>
+            <motion.div
+                variants={container}
+                initial="hidden"
+                animate="visible"
+                className='preview'>
 
 
                 {
@@ -26,11 +51,11 @@ const ProductsPreview = () => {
                         return products
 
                             .map((product) =>
-                                <ProductCard key={product.id} product={product} />)
+                                <motion.div variants={item}>   <ProductCard key={product.id} product={product} /></motion.div>)
                     })
                 }
 
-            </div>
+            </motion.div>
         </div>
     )
 
