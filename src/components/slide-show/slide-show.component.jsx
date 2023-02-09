@@ -1,37 +1,20 @@
 import './slide-show.styles.scss'
+import React, { useState, useEffect, useRef } from 'react';
 
-import React, { useState, useEffect } from 'react';
+const colors = ['red', 'blue', 'green', 'purple', 'yellow'];
 
 const images = [
-    'https://picsum.photos/300/200',
-    'https://picsum.photos/300/201',
-    'https://picsum.photos/300/202',
-    'https://picsum.photos/300/203'
+    'https://picsum.photos/id/1018/400/300',
+    'https://picsum.photos/id/1036/400/300',
+    'https://picsum.photos/id/1041/400/300',
+    'https://picsum.photos/id/1052/400/300',
+    'https://picsum.photos/id/1057/400/300'
 ];
 
 const SlideShow = () => {
-
-    const [currentImage, setCurrentImage] = useState(0);
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCurrentImage(current => (current + 1) % images.length);
-        }, 5000);
-        return () => clearInterval(intervalId);
-    }, [images.length]);
-
     return (
-        <div className="slider-container">
-            {images.map((image, index) => (
-                <img
-                    key={index}
-                    src={image}
-                    alt="Slider"
-                    className="slider-image"
-                />
-            ))}
-        </div>
-    );
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse optio, quam veniam facere minima maiores quaerat quas provident autem, neque, vel itaque cum saepe debitis! Explicabo laudantium facilis corporis harum!</h1>
+    )
 };
 
 export default SlideShow;

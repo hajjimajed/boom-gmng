@@ -113,18 +113,24 @@
             color: #000000;
         }
 
-        .btn {
-            background-color: blue;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100px;
+        .close-btn {
+            width: 40px;
+            height: 40px;
             position: absolute;
             top: 30px;
             right: 30px;
+            border-radius: 25px;
+            background-color: #ffffff;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            overflow: hidden;
+
+            .close-img {
+                width: 25px;
+                height: auto;
+                filter: invert(47%) sepia(11%) saturate(380%) hue-rotate(167deg) brightness(93%) contrast(86%);
+                transition: 0.15s ease-in-out all;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ import { useState, useContext } from 'react';
 import { CartContext } from '../../contexts/cart-context';
 
 import { ReactComponent as AddLogo } from '../../assets/add.svg'
+import { ReactComponent as CloseBtn } from '../../assets/close.svg'
 
 const show = {
     opacity: 1,
@@ -75,12 +76,13 @@ const ProductCard = ({ product }) => {
             <motion.div className='shape' initial={{ opacity: 0, display: "none" }} animate={isVisible ? hide : show}>
                 <h1>{name}</h1>
                 <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum voluptates ipsam impedit obcaecati facilis vero aliquid qui laborum voluptas temporibus laudantium, quisquam in numquam. Nihil iste quasi tempore natus eveniet.</h1>
-                <motion.button className='btn'
+                <motion.div className='close-btn'
                     whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.05 }}
                     onClick={visibleToggle}
                 >
-                    {isVisible ? "Hide" : "Show"}
-                </motion.button>
+                    <CloseBtn className='close-img' />
+                </motion.div>
             </motion.div>
         </div>
     )
