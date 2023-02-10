@@ -1,20 +1,45 @@
 import './slide-show.styles.scss'
-import React, { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
-const colors = ['red', 'blue', 'green', 'purple', 'yellow'];
+import { ReactComponent as Arrow } from '../../assets/arrow.svg'
 
-const images = [
-    'https://picsum.photos/id/1018/400/300',
-    'https://picsum.photos/id/1036/400/300',
-    'https://picsum.photos/id/1041/400/300',
-    'https://picsum.photos/id/1052/400/300',
-    'https://picsum.photos/id/1057/400/300'
-];
+import { motion } from 'framer-motion';
 
-const SlideShow = () => {
+const Carousel = ({ slides }) => {
+
+    const [current, setCurrent] = useState(0);
+    const length = slides.length;
+
+    const nextSlide = () => {
+        setCurrent(current === length - 1 ? 0 : current + 1)
+    }
+    const prevSlide = () => {
+        setCurrent(current === 0 ? length - 1 : current - 1)
+    }
+
+    /*  if (Array.isArray(slides) || slides.length <= 0) {
+          return null;
+      } */
+
     return (
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse optio, quam veniam facere minima maiores quaerat quas provident autem, neque, vel itaque cum saepe debitis! Explicabo laudantium facilis corporis harum!</h1>
-    )
-};
+        <motion.section className='slider'>
+            <div className='left-arrow' onClick={prevSlide}><Arrow className='left-arrow-img' /></div>
+            <div className='right-arrow' onClick={nextSlide}><Arrow className='right-arrow-img' /></div>
 
-export default SlideShow;
+            {
+                slides.map((slide, index) => {
+                    return (
+                        <div className={index === current ? "slide active" : "slide"} key={index}>
+                            {index === current && (<img src={slide.image} alt='image' className='image' />)}
+                        </div>
+                    )
+
+
+                })
+            }
+        </motion.section>
+    )
+
+}
+
+export default Carousel;
