@@ -1,25 +1,14 @@
 import './home.styles.scss'
 import { Outlet } from "react-router-dom";
 
-import Carousel from '../../components/slide-show/slide-show.component';
+import CardShow from '../../components/card-show/card-show.component';
 
-const SliderData = [
-    {
-        image: 'https://images.unsplash.com/photo-1675919038472-6ae71f6c56c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80'
-    },
-    {
-        image: 'https://plus.unsplash.com/premium_photo-1661777227443-77e227eb8d35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-    },
-    {
-        image: 'https://images.unsplash.com/photo-1676012120403-42a8ae3f998e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=60'
-    },
-    {
-        image: 'https://images.unsplash.com/photo-1670272505340-d906d8d77d03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-    },
-    {
-        image: 'https://plus.unsplash.com/premium_photo-1661777227443-77e227eb8d35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-    }
-]
+const images = [
+    "https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png",
+    "https://d33wubrfki0l68.cloudfront.net/49de349d12db851952c5556f3c637ca772745316/cfc56/static/images/wallpapers/bridge-02@2x.png",
+    "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
+    "https://i.ibb.co/pxw57N4/egs-marvelsspidermanremastered-insomniacgamesnixxessoftware-g1a-01-1920x1080-89160030c92b.jpg"
+];
 
 const Home = () => {
 
@@ -28,7 +17,7 @@ const Home = () => {
 
             <Outlet />
 
-            <Carousel slides={SliderData} />
+            <CardShow images={images} />
 
 
         </div>

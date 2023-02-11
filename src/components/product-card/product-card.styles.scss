@@ -93,8 +93,8 @@
     }
 
     .shape {
-        width: 90vw;
-        height: 95vh;
+        width: 85vw;
+        height: 90vh;
         border-radius: 25px;
         background: #ffffff;
         margin: 0;
@@ -102,15 +102,73 @@
         -webkit-box-shadow: 0px 0px 400px 200px rgba(0, 0, 0, 0.24);
         -moz-box-shadow: 0px 0px 400px 200px rgba(0, 0, 0, 0.24);
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         position: fixed;
         left: 5vw;
         top: 2.5vh;
+        padding: 2.5vh 2.5vw;
 
 
-        h1 {
-            color: #000000;
+        .game-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            width: 65%;
+            height: 100%;
+
+            h1 {
+                font-size: 18px;
+                width: 90%;
+                color: #2a2a2a;
+            }
+        }
+
+        .games-infos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 25%;
+            height: 100%;
+
+            img {
+                width: 200px;
+                height: auto;
+                margin-bottom: 20px;
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+
+            .game-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-bottom: 20px;
+
+                h1 {
+                    font-size: 22px;
+                    font-weight: 700;
+                    text-transform: capitalize;
+                }
+
+                .price-container {
+                    height: 27px;
+                    width: 42px;
+                    background-color: #ef233c;
+                    border-radius: 8px;
+                }
+
+                .price {
+                    font-size: 16px;
+                    color: #ffffff;
+                    font-weight: 500;
+                }
+            }
+
         }
 
         .close-btn {
