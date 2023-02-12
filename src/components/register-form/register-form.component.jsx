@@ -11,6 +11,7 @@ import { async } from '@firebase/util';
 
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
+import { useNavigate } from 'react-router-dom';
 
 const defaultFormFields = {
     displayName: '',
@@ -58,6 +59,13 @@ const RegisterForm = () => {
         setFormFields({ ...formFields, [name]: value })
     }
 
+
+    const navigate = useNavigate();
+
+    const goToStoreHandler = () => {
+        navigate('/store')
+    }
+
     return (
         <div className='register-form-container'>
 
@@ -68,7 +76,7 @@ const RegisterForm = () => {
                     <div className='registering-done'>
                         <Check className='check-logo'></Check>
                         <h1>Thanks For Registering !</h1>
-                        <Button>Check Our Store</Button>
+                        <Button onClick={goToStoreHandler}>Check Our Store</Button>
                     </div>
                 ) :
                     (

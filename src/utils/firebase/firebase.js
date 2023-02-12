@@ -143,3 +143,15 @@ export const currentUserData = async (currentUser) => {
     }
 }
 
+export const contactMessage = async (email, name, message) => {
+    const contactRef = doc(db, 'contacts', name)
+    try {
+        await setDoc(contactRef, {
+            email: email,
+            name: name,
+            message: message
+        })
+    } catch (error) {
+        console.log('Error', error.message);
+    }
+}

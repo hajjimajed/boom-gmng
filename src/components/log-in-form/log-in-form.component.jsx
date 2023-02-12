@@ -10,6 +10,7 @@ import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthWithEmailA
 import { useState, useContext } from 'react';
 
 import { UserContext } from '../../contexts/user.context';
+import { useNavigate } from 'react-router-dom';
 
 const defaultFormFields = {
     email: '',
@@ -58,6 +59,13 @@ const LogInForm = () => {
     }
 
 
+    const navigate = useNavigate();
+
+    const goToStoreHandler = () => {
+        navigate('/store')
+    }
+
+
     return (
         <div className="log-in-form-container">
 
@@ -68,7 +76,7 @@ const LogInForm = () => {
                             <h1>Welcome Back</h1>
                             <h1>{currentUser.displayName}</h1>
                         </span>
-                        <Button>Check Our News</Button>
+                        <Button onClick={goToStoreHandler}>Check Our Store</Button>
                     </div>
                 ) : (
                     <>

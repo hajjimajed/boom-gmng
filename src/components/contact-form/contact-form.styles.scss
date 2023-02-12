@@ -17,6 +17,23 @@
         height: auto;
     }
 
+    .contact-done {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        .check-logo {
+            margin-top: -50px;
+            filter: invert(62%) sepia(64%) saturate(730%) hue-rotate(113deg) brightness(93%) contrast(95%);
+        }
+
+        h1 {
+            margin: 50px 0;
+        }
+    }
+
     .contact-form {
         width: 80%;
 
