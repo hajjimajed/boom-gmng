@@ -48,7 +48,11 @@ const Navigation = () => {
     }, [])
 
 
+    const [activeLink, setActiveLink] = useState('store');
 
+    const handleClick = (link) => {
+        setActiveLink(link);
+    };
 
 
 
@@ -62,8 +66,8 @@ const Navigation = () => {
                     <Link to='/' className='main-logo-container'>
                         <MainLogo className='main-logo' />
                     </Link>
-                    <Link to='/store' className="nav-link">store <div className='underline'></div> </Link>
-                    <Link to='/support' className="nav-link">Support <div className='underline'></div></Link>
+                    <Link onClick={() => handleClick('store')} to='/store' className="nav-link">store <div className={activeLink === 'store' ? 'underline-active' : 'underline'}></div> </Link>
+                    <Link onClick={() => handleClick('support')} to='/support' className="nav-link">Support <div className={activeLink === 'support' ? 'underline-active' : 'underline'}></div></Link>
                     <CartIcon />
 
 
@@ -79,10 +83,10 @@ const Navigation = () => {
                                 <span>Log Out</span>
                                 <div className='underline'></div>
                             </a>
-                        ) : (<Link to='/login' className="nav-link">
+                        ) : (<Link onClick={() => handleClick('login')} to='/login' className="nav-link">
                             <UserLogo className='user-logo' />
                             <span>Log in</span>
-                            <div className='underline'></div>
+                            <div className={activeLink === 'login' ? 'underline-active' : 'underline'} ></div>
                         </Link>)
                     }
 
