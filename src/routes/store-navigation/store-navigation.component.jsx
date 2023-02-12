@@ -14,9 +14,9 @@ const StoreNavigation = () => {
         <div className='store-side-menu'>
             {
                 Object.keys(productsMap).map(title => {
-                    return <h1 key={title} onClick={() => {
+                    return <div className="store-link-container"><h1 key={title} onClick={() => {
                         navigate(`${title.toLowerCase()}`)
-                    }} className="store-link">{title}</h1>
+                    }} className="store-link">{title}</h1><div className='underline'></div></div>
                 })
             }
         </div>

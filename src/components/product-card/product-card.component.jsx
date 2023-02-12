@@ -26,6 +26,7 @@ const hide = {
 };
 
 
+
 const ProductCard = ({ product }) => {
 
     const { name, price, imageUrl, captures } = product;
@@ -80,15 +81,20 @@ const ProductCard = ({ product }) => {
                 initial={{ opacity: 0, display: "none" }} animate={isVisible ? hide : show}>
                 <div className='game-description'>
                     <CardShow images={captures} />
-                    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, sit molestiae. Maiores dolores consectetur, minus soluta hic similique laudantium cupiditate perferendis consequuntur quam at eligendi assumenda cumque possimus molestiae eos.</h1>
                 </div>
                 <div className='games-infos'>
-                    <motion.img whileHover={{ scale: 1.05 }} src={imageUrl} alt="" />
+                    <div className='game-description'>
+                        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit consequatur sapiente voluptas quasi omnis corporis quam ullam! Illo praesentium temporibus minima? Molestiae, ducimus. Doloremque necessitatibus in perferendis similique repellendus ipsa.</h1>
+                    </div>
                     <div className='game-info'>
                         <h1>{name}</h1>
                         <div className='price-container'><span className='price'>$ {price}</span></div>
+                        <Button onClick={addProductToCart}>Add to cart</Button>
                     </div>
-                    <Button onClick={addProductToCart}>Add to cart</Button>
+                    <div className='game-image-container'>
+                        <img src={imageUrl} alt="" />
+                    </div>
+
                 </div>
 
                 <motion.div className='close-btn'

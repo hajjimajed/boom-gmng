@@ -1,0 +1,75 @@
+@mixin shrinkLabel {
+    top: 0px;
+    font-size: 13px;
+    top: 16px;
+}
+
+.log-in-form-container {
+    width: 40vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+        width: 50px;
+        height: auto;
+    }
+
+    .contact-form {
+        width: 80%;
+
+
+        .message-container {
+            width: 100%;
+            position: relative;
+            margin-bottom: 25px;
+
+            .message {
+                background: none;
+                background-color: transparent;
+                font-size: 15px;
+                padding: 15px 10px;
+                display: block;
+                width: 100%;
+                border: none;
+                border-radius: 4px;
+                border: 1px solid #00000057;
+
+
+                &:focus {
+                    border-color: #ffb703;
+                    outline: none;
+
+                }
+
+                &:focus~.message-label {
+                    @include shrinkLabel();
+                    font-size: 11px;
+                    top: 0;
+                }
+            }
+
+            .message-label {
+                font-size: 11px;
+                font-weight: normal;
+                position: absolute;
+                pointer-events: none;
+                left: 10px;
+                top: 16px;
+                transition: 300ms ease all;
+
+                &.shrink {
+                    @include shrinkLabel();
+                }
+
+                span {
+                    color: #ffb703;
+                }
+            }
+        }
+
+
+    }
+}

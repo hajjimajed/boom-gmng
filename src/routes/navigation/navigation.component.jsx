@@ -63,7 +63,7 @@ const Navigation = () => {
                         <MainLogo className='main-logo' />
                     </Link>
                     <Link to='/store' className="nav-link">store <div className='underline'></div> </Link>
-                    <Link to='/news' className="nav-link">News <div className='underline'></div></Link>
+                    <Link to='/support' className="nav-link">Support <div className='underline'></div></Link>
                     <CartIcon />
 
 

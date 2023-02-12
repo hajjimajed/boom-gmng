@@ -7,6 +7,7 @@ import Login from './routes/log-in/log-in.component';
 import Store from './routes/store/store.component';
 import Checkout from './routes/checkout/checkout.component';
 import Home from './routes/home/home.component';
+import Support from './routes/support/support.component';
 
 
 function App() {
@@ -16,8 +17,7 @@ function App() {
 
         <Route index element={<Home />} />
         <Route path='store/*' element={<Store />} />
-        <Route path='news' />
-        <Route path='support' />
+        <Route path='support' element={<Support />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='checkout' element={<Checkout />} />
