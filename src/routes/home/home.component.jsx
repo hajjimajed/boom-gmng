@@ -2,6 +2,7 @@ import './home.styles.scss'
 import { Outlet } from 'react-router-dom';
 
 import Directory from '../../components/directory/directory.component';
+import Footer from '../../components/footer/footer.component';
 
 const Home = () => {
 
@@ -9,7 +10,7 @@ const Home = () => {
         <div className='home'>
 
             <Directory />
-
+            <Footer />
             <Outlet />
         </div>
     )

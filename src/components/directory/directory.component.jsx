@@ -1,15 +1,16 @@
 import './directory.styles.scss'
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as ArrowLeft } from '../../assets/left-arrow.svg';
 import { ReactComponent as ArrowRight } from '../../assets/right-arrow.svg';
 import Button from '../Button/button.component';
 
 const slides = [
-    { id: 1, bgColor: 'https://i.ibb.co/VTKQTHP/Untitled-1.png' },
-    { id: 2, bgColor: 'https://i.ibb.co/fHMdKCd/dylan-nolte-SH-Ijr-Kw-G8c-unsplash.jpg' },
-    { id: 3, bgColor: 'https://i.ibb.co/Z8mjmwy/Untitled.png' }
+    { id: 1, bgColor: 'https://i.ibb.co/VTKQTHP/Untitled-1.png', img: 'https://i.ibb.co/S04tn9C/pngwing-com-9.png' },
+    { id: 2, bgColor: 'https://i.ibb.co/fFTMnJz/Untitled.png', img: 'https://i.ibb.co/VMSxvkv/pngegg.png' },
+    { id: 3, bgColor: 'https://i.ibb.co/42phQrN/Untitled-2.png', img: 'https://i.ibb.co/YhjZ7ZM/pngegg-5.png' }
 ];
 const images = ['https://i.ibb.co/VTKQTHP/Untitled-1.png',
     'https://i.ibb.co/fHMdKCd/dylan-nolte-SH-Ijr-Kw-G8c-unsplash.jpg',
@@ -56,15 +57,17 @@ const Directory = () => {
                             style={{ backgroundImage: `url(${slide.bgColor})` }}
                         >
                             <div className='carousel-infos'>
-                                <p>over 2,000 games</p>
+                                <p>over 200 games</p>
                                 <h1>best deals</h1>
                                 <h1>on boom</h1>
                                 <div className='btn-container'>
-                                    <Button buttonType='inverted'>view offers</Button>
+                                    <Link to='/store'>
+                                        <Button buttonType='inverted'>view offers</Button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className='carousel-image'>
-                                <img src="https://i.ibb.co/S04tn9C/pngwing-com-9.png" alt="" />
+                                <img src={slide.img} alt="" />
                             </div>
                         </div>
                     ))}
@@ -96,7 +99,7 @@ const Directory = () => {
                             </div>
                             <div className='shape-btn'>
                                 <div>
-                                    <ArrowRight className='shape-arrow' />
+                                    <Link to='/store/action%20games'><ArrowRight className='shape-arrow' /></Link>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +115,7 @@ const Directory = () => {
                             </div>
                             <div className='shape-btn'>
                                 <div>
-                                    <ArrowRight className='shape-arrow' />
+                                    <Link to='/store/adventure%20games'><ArrowRight className='shape-arrow' /></Link>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +131,7 @@ const Directory = () => {
                             </div>
                             <div className='shape-btn'>
                                 <div>
-                                    <ArrowRight className='shape-arrow' />
+                                    <Link to='/store/casual%20games'><ArrowRight className='shape-arrow' /></Link>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +147,7 @@ const Directory = () => {
                             </div>
                             <div className='shape-btn'>
                                 <div>
-                                    <ArrowRight className='shape-arrow' />
+                                    <Link to='/store/racing%20games'><ArrowRight className='shape-arrow' /></Link>
                                 </div>
                             </div>
                         </div>

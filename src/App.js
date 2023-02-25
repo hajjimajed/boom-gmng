@@ -11,6 +11,7 @@ import Support from './routes/support/support.component';
 
 
 function App() {
+
   return (
     <Routes>
       <Route path='/' element={<Navigation />}>
