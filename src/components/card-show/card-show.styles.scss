@@ -77,3 +77,29 @@
         cursor: pointer;
     }
 }
+
+.dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease-in all;
+}
+
+.dot.active {
+    background-color: #000;
+    transform: scale(1.5);
+}

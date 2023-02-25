@@ -82,6 +82,15 @@ export const CardShow = ({ images }) => {
                 <div className="prev" onClick={() => paginate(-1)}>
                     <LeftArrow className="arrow" />
                 </div>
+                <div className="dots-container">
+                    {images.map((image, index) => (
+                        <div
+                            key={index}
+                            className={`dot ${index === imageIndex ? 'active' : ''}`}
+                            onClick={() => paginate(index - imageIndex)}
+                        />
+                    ))}
+                </div>
             </div>
         </>
     );

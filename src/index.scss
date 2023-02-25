@@ -5,6 +5,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #000000;
   background: #ffffff;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 code {
