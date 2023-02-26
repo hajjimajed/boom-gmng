@@ -9,6 +9,8 @@
     margin: 0;
     padding: 0;
 
+
+
     .main-logo-container {
         height: 100%;
         width: 8%;
@@ -22,6 +24,10 @@
                 margin-top: 5px;
             }
 
+        }
+
+        .navigation-cart-icon-container {
+            display: none;
         }
     }
 
@@ -196,6 +202,14 @@
 
 @media(max-width:700px) {
     .navigation .main-logo-container {
+        width: 15%;
+    }
+
+    .navigation .main-logo-container .navigation-cart-icon-container {
+        display: block;
+    }
+
+    .navigation .main-logo-container {
         z-index: 11;
         margin-left: 10px;
     }
@@ -276,5 +290,29 @@
 
     .navigation .navigation-container .right-navigation .nav-link .underline-active {
         display: none;
+    }
+}
+
+@media(max-width:600px) {
+    .navigation .main-logo-container {
+        width: 17%;
+    }
+}
+
+@media(max-width:500px) {
+    .navigation .main-logo-container {
+        width: 20%;
+    }
+}
+
+@media(max-width:400px) {
+    .navigation .main-logo-container {
+        width: 25%;
+    }
+}
+
+@media(max-width:300px) {
+    .navigation .main-logo-container {
+        width: 30%;
     }
 }

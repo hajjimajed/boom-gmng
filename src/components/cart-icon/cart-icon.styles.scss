@@ -37,3 +37,9 @@
 
 
 }
+
+@media(max-width:700px) {
+    .cart-icon-container .item-count {
+        bottom: 3px;
+    }
+}

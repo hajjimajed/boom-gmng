@@ -91,9 +91,9 @@ const RegisterForm = () => {
                                 <FormInput onChange={handleChange} label="Password" required type="password" name="password" value={password} />
 
                                 <FormInput onChange={handleChange} label="Confirm Password" required type="password" name="confirmPassword" value={confirmPassword} />
-
-                                <Button buttonType='signUp' type="submit">Sign Up</Button>
-
+                                <div>
+                                    <Button buttonType='signUp' type="submit">Sign Up</Button>
+                                </div>
                             </form>
                         </>
                     )

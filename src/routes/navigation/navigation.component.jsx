@@ -76,9 +76,12 @@ const Navigation = () => {
 
             <div className='navigation'>
                 <div className='main-logo-container'>
-                    <Link onClick={handleMenuLink} to='/' className='main-logo-link'>
+                    <Link onClick={() => { handleClick('/'); handleMenuLink(); }} to='/' className='main-logo-link'>
                         <MainLogo className='main-logo' />
                     </Link>
+                    <div className='navigation-cart-icon-container'>
+                        <CartIcon />
+                    </div>
                 </div>
                 <div className={`navigation-container ${isNavigationMenuOpen ? 'navigation-container--visible' : ''}`}>
                     <div className='left-navigation'>
@@ -112,7 +115,7 @@ const Navigation = () => {
 
                                 <div onClick={handleMenuLink} className="nav-link">{currentUser.displayName}</div>
                             ) : (
-                                <Link onClick={handleMenuLink} to='/register' className="nav-link"><h1>register</h1></Link>
+                                <Link onClick={() => { handleClick('register'); handleMenuLink(); }} to='/register' className="nav-link"><h1>register</h1></Link>
                             )
                         }
 

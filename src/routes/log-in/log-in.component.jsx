@@ -7,10 +7,9 @@ const Login = () => {
 
     return (
         <>
-            <div>
-                <div>
-                    <LogInForm />
-                </div>
+
+            <div className='login-container'>
+                <LogInForm />
             </div>
             <Footer />
         </>

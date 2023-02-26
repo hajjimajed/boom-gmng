@@ -1,5 +1,7 @@
 .button-container {
+    height: 50px;
     padding: 15px 40px;
+    margin: 5px;
     text-align: center;
     font-weight: 700;
     border: none;
@@ -11,6 +13,7 @@
     font-size: 14px;
     cursor: pointer;
     transition: 0.2s all ease-in-out;
+    border: #ef233c solid 1px;
 
     &:hover {
         color: #ef233c;
@@ -18,18 +21,21 @@
         border: #ef233c 1px solid;
     }
 
-    &.google-sign-in {
-        background-color: #d4a373;
+    &.google {
+        background-color: #4291ff;
+        color: #ffffff;
+        border: #4291ff solid 1px;
 
         &:hover {
-            background-color: #000000;
+            background-color: #ffffff;
+            color: #4291ff;
         }
     }
 
     &.checkout {
         background-color: #000000;
         color: #ffffff;
-        height: 35px;
+        border: #000000 solid 1px;
 
         &:hover {
             background-color: #ffffff;
@@ -47,5 +53,14 @@
             background-color: #ffffff;
             color: #000000;
         }
+    }
+}
+
+
+@media(max-width:600px) {
+    .button-container {
+        height: 40px;
+        padding: 14px 28px;
+        font-size: 12px;
     }
 }

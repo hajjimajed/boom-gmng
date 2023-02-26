@@ -48,7 +48,7 @@ const ContactForm = () => {
     }
 
     return (
-        <div className="log-in-form-container">
+        <div className="contact-form-container">
 
 
             {

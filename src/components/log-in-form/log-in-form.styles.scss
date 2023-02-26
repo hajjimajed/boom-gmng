@@ -1,12 +1,12 @@
 .log-in-form-container {
+    height: 400px;
+    width: 450px;
+    padding: 50px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    height: 500px;
-    width: 450px;
     background-color: #ffffff;
-    margin: 50px 0;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
     .logo {
@@ -42,52 +42,43 @@
 
     .login-form {
         width: 80%;
-        height: 80%;
-
 
         .login-btn-container {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 35%;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 100%;
 
-            .google-btn {
-                width: 100%;
-                height: 50px;
-                border: none;
-                border-radius: 2px;
-                color: white;
-                background-color: #3a86ff;
-                font-size: 15px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: 0.2s ease-in-out all;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: flex-start;
-                margin: 0;
-                padding: 0;
-
-                &:hover {
-                    color: #3a86ff;
-                    background-color: #ffffff;
-                    border: #3a86ff 1px solid;
-
-                }
-
-                div {
-                    margin-left: 2px;
-                    height: 45px;
-                    width: 45px;
-                    background: #ffffff;
-                }
-
-                span {
-                    margin-left: 60px;
-                }
-            }
         }
     }
 
+}
+
+
+@media(max-width:500px) {
+    .log-in-form-container {
+        width: 350px;
+    }
+
+    .log-in-form-container .login-form .login-btn-container {
+        flex-direction: column;
+    }
+}
+
+@media(max-width:400px) {
+    .log-in-form-container {
+        width: 320px;
+    }
+}
+
+@media(max-width:350px) {
+    .log-in-form-container {
+        width: 300px;
+    }
+}
+
+@media(max-width:300px) {
+    .log-in-form-container {
+        width: 270px;
+    }
 }
