@@ -2,6 +2,7 @@ import './checkout.styles.scss'
 
 import Button from '../../components/Button/button.component'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
+import Footer from '../../components/footer/footer.component'
 
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/cart-context'
@@ -35,40 +36,45 @@ const Checkout = () => {
 
 
     return (
-        <motion.div className='checkout-container'
-            variants={container}
-            initial="hidden"
-            animate="visible"
-        >
+        <>
+            <motion.div className='checkout-container'
+                variants={container}
+                initial="hidden"
+                animate="visible"
+            >
 
-            <div className='checkout-header'>
-                <div className='header-block'>
-                    <span>Product</span>
+                <div className='checkout-header'>
+                    <div className='header-block'>
+                        <span>Product</span>
+                    </div>
+                    <div className='header-block'>
+                        <span>Description</span>
+                    </div>
+                    <div className='header-block'>
+                        <span>Quantity</span>
+                    </div>
+                    <div className='header-block'>
+                        <span>Price</span>
+                    </div>
+                    <div className='header-block'>
+                        <span>Remove</span>
+                    </div>
                 </div>
-                <div className='header-block'>
-                    <span>Description</span>
-                </div>
-                <div className='header-block'>
-                    <span>Quantity</span>
-                </div>
-                <div className='header-block'>
-                    <span>Price</span>
-                </div>
-                <div className='header-block'>
-                    <span>Remove</span>
-                </div>
-            </div>
-            {
-                cartItems.map((cartItem) => (
-                    <motion.div variants={item} className='checkout-items-container'><CheckoutItem key={cartItem.id} cartItem={cartItem} /></motion.div>
-                ))
-            }
+                {
+                    cartItems.map((cartItem) => (
+                        <motion.div variants={item} className='checkout-items-container'><CheckoutItem key={cartItem.id} cartItem={cartItem} /></motion.div>
+                    ))
+                }
 
-            <span className='total'>Total: ${cartTotal}</span>
+                <span className='total'>Total: ${cartTotal}</span>
 
-            <Button >Payment</Button>
+                <Button >Payment</Button>
 
-        </motion.div>
+            </motion.div>
+
+
+            <Footer />
+        </>
     )
 }
 

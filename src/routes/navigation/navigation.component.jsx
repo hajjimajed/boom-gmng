@@ -56,51 +56,75 @@ const Navigation = () => {
 
 
 
+    const [isButtonClicked, setIsButtonClicked] = useState(false);
+    const [isNavigationMenuOpen, setIsNavigationMenuOpen] = useState(false);
+
+    const menuToggle = () => {
+        setIsNavigationMenuOpen(!isNavigationMenuOpen);
+        setIsButtonClicked(!isButtonClicked);
+    }
+
+    const handleMenuLink = () => {
+        setIsNavigationMenuOpen(false);
+        setIsButtonClicked(!isButtonClicked);
+    };
+
     return (
         <Fragment>
 
 
 
             <div className='navigation'>
-                <div className='left-navigation'>
-                    <Link to='/' className='main-logo-container'>
+                <div className='main-logo-container'>
+                    <Link onClick={handleMenuLink} to='/' className='main-logo-link'>
                         <MainLogo className='main-logo' />
                     </Link>
-                    <Link onClick={() => handleClick('store')} to='/store' className="nav-link">store <div className={activeLink === 'store' ? 'underline-active' : 'underline'}></div> </Link>
-                    <Link onClick={() => handleClick('support')} to='/support' className="nav-link">Support <div className={activeLink === 'support' ? 'underline-active' : 'underline'}></div></Link>
-                    <CartIcon />
+                </div>
+                <div className={`navigation-container ${isNavigationMenuOpen ? 'navigation-container--visible' : ''}`}>
+                    <div className='left-navigation'>
+                        <Link onClick={() => { handleClick('store'); handleMenuLink(); }} to='/store' className="nav-link"><h1>store</h1><div className={activeLink === 'store' ? 'underline-active' : 'underline'}></div> </Link>
+                        <Link onClick={() => { handleClick('support'); handleMenuLink(); }} to='/support' className="nav-link"><h1>Support</h1><div className={activeLink === 'support' ? 'underline-active' : 'underline'}></div></Link>
+                        <CartIcon />
 
 
 
+
+                    </div>
+                    <div className='right-navigation'>
+
+                        {
+                            currentUser ? (
+                                <Link to='/' onClick={() => { signOutHandler(); handleMenuLink(); }} className="nav-link">
+                                    <UserLogo className='logged-user-logo' />
+                                    <h1>Log Out</h1>
+                                    <div className='underline'></div>
+                                </Link>
+                            ) : (<Link onClick={() => { handleClick('login'); handleMenuLink(); }} to='/login' className="nav-link">
+                                <UserLogo className='user-logo' />
+                                <h1>Log In</h1>
+                                <div className={activeLink === 'login' ? 'underline-active' : 'underline'} ></div>
+                            </Link>)
+                        }
+
+                        {
+
+                            currentUser ? (
+
+                                <div onClick={handleMenuLink} className="nav-link">{currentUser.displayName}</div>
+                            ) : (
+                                <Link onClick={handleMenuLink} to='/register' className="nav-link"><h1>register</h1></Link>
+                            )
+                        }
+
+                    </div>
 
                 </div>
-                <div className='right-navigation'>
-
-                    {
-                        currentUser ? (
-                            <a onClick={signOutHandler} className="nav-link">
-                                <UserLogo className='logged-user-logo' />
-                                <span>Log Out</span>
-                                <div className='underline'></div>
-                            </a>
-                        ) : (<Link onClick={() => handleClick('login')} to='/login' className="nav-link">
-                            <UserLogo className='user-logo' />
-                            <span>Log in</span>
-                            <div className={activeLink === 'login' ? 'underline-active' : 'underline'} ></div>
-                        </Link>)
-                    }
-
-                    {
-
-                        currentUser ? (
-
-                            <div className="nav-link">{currentUser.displayName}</div>
-                        ) : (
-                            <Link to='/register' className="nav-link">register</Link>
-                        )
-                    }
-
+                <div onClick={menuToggle} className={`navigation-menu-button ${isButtonClicked ? 'navigation-menu-button--active' : ''}`}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
+
             </div>
 
             <Outlet />

@@ -39,7 +39,7 @@ const Directory = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
-        }, 50000);
+        }, 5000);
         return () => clearInterval(interval);
     }, [currentSlide]);
 

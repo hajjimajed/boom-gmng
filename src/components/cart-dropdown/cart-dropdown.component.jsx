@@ -67,7 +67,6 @@ const CartDropdown = () => {
             variants={container}
             initial="hidden"
             animate="visible"
-            ref={dropdownRef}
             className='cart-dropdown-container'>
             <div className='cart-header'>
                 <div className='cart-dropdown-logo'>
@@ -84,7 +83,7 @@ const CartDropdown = () => {
                     cartItems.map(cartItem => <motion.div variants={item} key={cartItem.name}><CartItem key={cartItem.name} cartItem={cartItem} /> </motion.div>)
                 }
             </div>
-            <Button onClick={goToCheckoutHandler} buttonType='checkout'>chekout</Button>
+            <Button onClick={() => { goToCheckoutHandler(); toggleDropdown(); }} buttonType='checkout'>chekout</Button>
         </motion.div>
     )
 

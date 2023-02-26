@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import ProductCard from '../../components/product-card/product-card.component';
+import Footer from '../../components/footer/footer.component'
 
 import { motion } from 'framer-motion'
 
@@ -42,21 +43,24 @@ const ProductsCategory = () => {
     }, [productsCategory, products])
 
     return (
+        <>
+            <motion.div
+                variants={container}
+                initial="hidden"
+                animate="visible"
+                className='category-preview-container'>
+                <div className='preview'>
 
-        <motion.div
-            variants={container}
-            initial="hidden"
-            animate="visible"
-            className='category-preview-container'>
-            <div className='preview'>
+                    {
+                        products &&
+                        products.map((product) => <motion.div variants={item}> <ProductCard key={product.id} product={product} /></motion.div>)
+                    }
 
-                {
-                    products &&
-                    products.map((product) => <motion.div variants={item}> <ProductCard key={product.id} product={product} /></motion.div>)
-                }
+                </div>
+            </motion.div>
 
-            </div>
-        </motion.div>
+            <Footer />
+        </>
 
     )
 
