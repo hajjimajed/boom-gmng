@@ -9,7 +9,7 @@ import { ReactComponent as AddLogo } from '../../assets/add.svg'
 import { ReactComponent as CloseBtn } from '../../assets/close.svg'
 import Button from '../Button/button.component'
 
-import CardShow from '../card-show/card-show.component';
+import GameCarousel from '../game-carousel/game-carousel.component';
 
 const show = {
     opacity: 1,
@@ -25,11 +25,18 @@ const hide = {
     zIndex: 0
 };
 
+const slides = [
+    { id: 1, bgColor: 'https://i.ibb.co/VTKQTHP/Untitled-1.png', img: 'https://i.ibb.co/S04tn9C/pngwing-com-9.png' },
+    { id: 2, bgColor: 'https://i.ibb.co/fFTMnJz/Untitled.png', img: 'https://i.ibb.co/VMSxvkv/pngegg.png' },
+    { id: 3, bgColor: 'https://i.ibb.co/42phQrN/Untitled-2.png', img: 'https://i.ibb.co/YhjZ7ZM/pngegg-5.png' }
+];
+
 
 
 const ProductCard = ({ product }) => {
 
     const { name, price, imageUrl, captures } = product;
+
 
     const [isVisible, setIsVisible] = useState(true);
 
@@ -77,23 +84,17 @@ const ProductCard = ({ product }) => {
 
             </motion.div>
 
-            <motion.div className='shape'
+            <motion.div className='game-overview'
                 initial={{ opacity: 0, display: "none" }} animate={isVisible ? hide : show}>
-                <div className='game-description'>
-                    <CardShow images={captures} />
+                <div className='game-image-carousel'>
+                    <div className='game-carousel'>
+                        <GameCarousel captures={captures} />
+                    </div>
+                    <div className='game-description'>
+                    </div>
                 </div>
                 <div className='games-infos'>
-                    <div className='game-description'>
-                        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit consequatur sapiente voluptas quasi omnis corporis quam ullam! Illo praesentium temporibus minima? Molestiae, ducimus. Doloremque necessitatibus in perferendis similique repellendus ipsa.</h1>
-                    </div>
-                    <div className='game-info'>
-                        <h1>{name}</h1>
-                        <div className='price-container'><span className='price'>$ {price}</span></div>
-                        <Button onClick={addProductToCart}>Add to cart</Button>
-                    </div>
-                    <div className='game-image-container'>
-                        <img src={imageUrl} alt="" />
-                    </div>
+
 
                 </div>
 
