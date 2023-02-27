@@ -163,3 +163,33 @@
         }
     }
 }
+
+
+@media(max-width:600px) {
+    .game-carousel-container .carousel .controls .dots {
+        height: 45px;
+    }
+
+    .game-carousel-container .carousel .controls .dots div {
+        width: 70px;
+        height: 40px;
+    }
+
+    .game-carousel-container .arrow-left {
+        width: 20px;
+        left: 5px;
+        top: 40%;
+    }
+
+    .game-carousel-container .arrow-right {
+        width: 20px;
+        right: 5px;
+        top: 40%;
+    }
+
+    .product-main-container .game-overview .close-img {
+        top: 10px;
+        right: 10px;
+        width: 15px;
+    }
+}

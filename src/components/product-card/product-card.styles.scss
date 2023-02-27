@@ -90,7 +90,6 @@
     .game-overview {
         width: 90vw;
         height: 90vh;
-        padding: 10px;
         border-radius: 5px;
         background: #ffffff;
         margin: 0;
@@ -104,7 +103,6 @@
         position: fixed;
         left: 5vw;
         top: 5vh;
-        background-color: #3f3f3f;
 
 
 
@@ -128,7 +126,7 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                color: #ffffff;
+                color: #000000;
 
                 .description-text {
                     display: flex;
@@ -143,7 +141,7 @@
                         font-size: 16px;
                         font-weight: 500;
                         text-transform: capitalize;
-                        color: #ffffffa9;
+                        color: #000000a9;
                     }
 
                     h1 {
@@ -169,7 +167,7 @@
                         flex-direction: column;
                         justify-content: flex-start;
                         align-items: flex-start;
-                        border-left: #ffffff46 1px solid;
+                        border-left: #00000046 1px solid;
 
                         img {
                             height: 100%;
@@ -183,12 +181,12 @@
                             font-size: 16px;
                             font-weight: 500;
                             text-transform: capitalize;
-                            color: #ffffffa9;
+                            color: #000000a9;
                         }
 
                         .description-genre-link {
                             text-decoration: underline;
-                            color: #ffffff;
+                            color: #000000;
 
 
 
@@ -196,7 +194,7 @@
                                 font-size: 16px;
                                 font-weight: 500;
                                 text-transform: capitalize;
-                                color: #ffffff;
+                                color: #000000;
                             }
                         }
                     }
@@ -217,6 +215,7 @@
             width: 35%;
             height: 100%;
             color: #ffffff;
+            background-color: #000000;
 
             .game-info-logo {
                 width: 100%;
@@ -251,7 +250,7 @@
                 }
 
                 .game-info-genre-container {
-                    background-color: #000000a0;
+                    background-color: #303030;
                     margin-left: 50px;
                     padding: 6px 10px;
                     border-radius: 3px;
@@ -390,5 +389,169 @@
 
     .product-main-container .product-card-container .product-card-footer .price {
         font-size: 14px;
+    }
+}
+
+
+@media(max-width:1300px) {
+    .product-main-container .game-overview {
+        flex-direction: column;
+    }
+
+    .product-main-container .game-overview .game-image-carousel {
+        width: 100%;
+        height: 65%;
+    }
+
+    .product-main-container .game-overview .games-infos {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 35%;
+        color: #ffffff;
+        background-color: #000000;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-logo img {
+        margin-left: 30px;
+        height: 50%;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-logo {
+        height: 100%;
+        width: 30%;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns {
+        height: 100%;
+        width: 35%;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-desc {
+        height: 100%;
+        width: 35%;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns h3 {
+        margin-left: 0;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns .game-info-genre-container {
+        margin-left: 0;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns h1 {
+        margin-left: 0;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns .game-info-btn-container {
+        margin-left: -5px;
+    }
+}
+
+@media(max-width:1000px) {
+    .product-main-container .game-overview .games-infos .game-info-logo img {
+        margin-left: 0px;
+        height: 35%;
+    }
+}
+
+@media(max-width:900px) {
+    .product-main-container .game-overview .games-infos .game-info-logo img {
+        margin-left: 0px;
+        height: 30%;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns h3 {
+        font-size: 24px;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns h1 {
+        font-size: 14px;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-desc div h1,
+    .product-main-container .game-overview .games-infos .game-info-desc div h2 {
+        font-size: 12px;
+    }
+}
+
+@media(max-width:700px) {
+    .product-main-container .game-overview .games-infos .game-info-logo img {
+        height: 25%;
+        margin-top: 0;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns h3 {
+        font-size: 20px;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns h1 {
+        font-size: 12px;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-desc div h1,
+    .product-main-container .game-overview .games-infos .game-info-desc div h2 {
+        font-size: 10px;
+    }
+
+    .product-main-container .game-overview .game-image-carousel .game-description .description-text h1 {
+        font-size: 8px;
+    }
+
+    .product-main-container .game-overview .game-image-carousel .game-description .description-text h2 {
+        font-size: 10px;
+    }
+
+    .product-main-container .game-overview .game-image-carousel .game-description .description-genre .genre h2 {
+        font-size: 10px;
+    }
+
+    .product-main-container .game-overview .game-image-carousel .game-description .description-genre .genre .description-genre-link h3 {
+        font-size: 10px;
+    }
+
+    .product-main-container .game-overview .game-image-carousel .game-carousel {
+        width: 100%;
+        height: 65%;
+    }
+
+    .product-main-container .game-overview .game-image-carousel .game-description {
+        width: 100%;
+        height: 35%;
+    }
+}
+
+@media(max-width:600px) {
+    .product-main-container .game-overview .game-image-carousel {
+        width: 100%;
+        height: 45%;
+    }
+
+    .product-main-container .game-overview .games-infos {
+        flex-direction: column;
+        height: 55%;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-logo {
+        height: 25%;
+        width: 100%;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-logo img {
+        height: 70%;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-btns {
+        width: 100%;
+        height: 40%;
+        align-items: center;
+    }
+
+    .product-main-container .game-overview .games-infos .game-info-desc {
+        width: 100%;
+        height: 35%;
     }
 }
