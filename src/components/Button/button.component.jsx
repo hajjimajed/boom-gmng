@@ -9,7 +9,8 @@ const BUTTON_TYPE_CLASSES = {
     add: 'add',
     add2: 'add2',
     checkout: 'checkout',
-    inverted: 'inverted'
+    inverted: 'inverted',
+    preview: 'preview'
 }
 
 
