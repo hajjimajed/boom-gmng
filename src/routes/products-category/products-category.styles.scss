@@ -1,8 +1,9 @@
 .category-preview-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    min-height: 100vh;
 
 
 
@@ -10,5 +11,23 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         column-gap: 20px;
+    }
+}
+
+@media(max-width:1200px) {
+    .category-preview-container .preview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width:900px) {
+    .category-preview-container .preview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:420px) {
+    .category-preview-container .preview {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

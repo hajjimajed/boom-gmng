@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='footer'>
+        <div className='main-footer'>
             <div className='footer-container'>
                 <div className='logo'>
                     <MainLogo className='logo-icon' />

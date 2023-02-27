@@ -8,7 +8,7 @@ import { ReactComponent as ArrowRight } from '../../assets/right-arrow.svg';
 import Button from '../Button/button.component';
 
 const slides = [
-    { id: 1, bgColor: 'https://i.ibb.co/VTKQTHP/Untitled-1.png', img: 'https://i.ibb.co/S04tn9C/pngwing-com-9.png' },
+    { id: 1, bgColor: 'https://i.ibb.co/VTKQTHP/Untitled-1.png', img: 'https://i.ibb.co/YhjZ7ZM/pngegg-5.png' },
     { id: 2, bgColor: 'https://i.ibb.co/fFTMnJz/Untitled.png', img: 'https://i.ibb.co/VMSxvkv/pngegg.png' },
     { id: 3, bgColor: 'https://i.ibb.co/42phQrN/Untitled-2.png', img: 'https://i.ibb.co/YhjZ7ZM/pngegg-5.png' }
 ];

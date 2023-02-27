@@ -76,9 +76,9 @@ const ProductCard = ({ product }) => {
                         <AddLogo className='add-logo' />
                     </motion.div>
                 </div>
-                <div className='footer' onClick={visibleToggle}>
+                <div className='product-card-footer' onClick={visibleToggle}>
                     <span className='name' >{name}</span>
-                    <div className='price-container'><span className='price'>$ {price}</span></div>
+                    <span className='price'>${price}</span>
                 </div>
 
 

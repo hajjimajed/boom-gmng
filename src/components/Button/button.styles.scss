@@ -56,11 +56,26 @@
     }
 }
 
+@media(max-width:800px) {
+    .button-container {
+        height: 45px;
+        padding: 13px 35px;
+        font-size: 12px;
+    }
+}
 
 @media(max-width:600px) {
     .button-container {
         height: 40px;
-        padding: 14px 28px;
+        padding: 11px 28px;
         font-size: 12px;
+    }
+}
+
+@media(max-width:500px) {
+    .button-container {
+        height: 35px;
+        padding: 9px 22px;
+        font-size: 10px;
     }
 }
