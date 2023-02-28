@@ -1,0 +1,47 @@
+.loader-container {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader-logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+        background-color: #EF233C;
+        overflow: hidden;
+
+        .logo {
+            width: 80%;
+            height: auto;
+            overflow: visible;
+            stroke: #fff;
+            stroke-width: 2;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+    }
+}
+
+
+@media(max-width:600px) {
+    .loader-container .loader-logo-container {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media(max-width:400px) {
+    .loader-container .loader-logo-container {
+        width: 200px;
+        height: 200px;
+    }
+}
