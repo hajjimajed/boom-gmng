@@ -100,11 +100,11 @@ const ProductCard = ({ product }) => {
                         <div className='description-genre'>
                             <div className='genre'>
                                 <h2>genres</h2>
-                                <Link to='/' className='description-genre-link'><h3>Action</h3></Link>
+                                <Link to='/store/action%20games' className='description-genre-link'><h3>Action</h3></Link>
                             </div>
                             <div className='genre'>
                                 <h2>features</h2>
-                                <Link to='/' className='description-genre-link'><h3>competitive</h3></Link>
+                                <Link to='/store' className='description-genre-link'><h3>competitive</h3></Link>
                             </div>
                             <div className='genre'>
                                 <img src="https://i.ibb.co/8s2mS1g/12.png" alt="" />

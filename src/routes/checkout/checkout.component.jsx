@@ -45,10 +45,10 @@ const Checkout = () => {
 
                 <div className='checkout-header'>
                     <div className='header-block'>
-                        <span>Product</span>
+                        <span>Image</span>
                     </div>
                     <div className='header-block'>
-                        <span>Description</span>
+                        <span>Name</span>
                     </div>
                     <div className='header-block'>
                         <span>Quantity</span>

@@ -1,7 +1,6 @@
 .directory-container {
     width: 90vw;
     height: 100vh;
-    margin: 50px;
     display: flex;
     flex-direction: row;
 
@@ -313,6 +312,7 @@
 @media(max-width:1300px) {
     .directory-container {
         flex-direction: column;
+        margin: 50px 0;
     }
 
     .directory-container .slide-show {

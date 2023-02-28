@@ -13,8 +13,8 @@ import { signOutUser } from '../../utils/firebase/firebase';
 import { currentUserData } from '../../utils/firebase/firebase';
 
 import CartIcon from '../../components/cart-icon/cart-icon.component';
-import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 
+import { motion } from 'framer-motion';
 
 const Navigation = () => {
 
@@ -74,9 +74,15 @@ const Navigation = () => {
 
 
 
-            <div className='navigation'>
+            <motion.div
+                initial={{ opacity: 0, translateY: -55 }} animate={{ opacity: 1, translateY: 0 }}
+                transition={{
+                    type: "spring",
+                    duration: 1.2
+                }}
+                className='navigation'>
                 <div className='main-logo-container'>
-                    <Link onClick={() => { handleClick('/'); handleMenuLink(); }} to='/' className='main-logo-link'>
+                    <Link onClick={() => { handleClick('/'); if (isNavigationMenuOpen) { handleMenuLink(); } }} to='/' className='main-logo-link'>
                         <MainLogo className='main-logo' />
                     </Link>
                     <div className='navigation-cart-icon-container'>
@@ -128,7 +134,7 @@ const Navigation = () => {
                     <div></div>
                 </div>
 
-            </div>
+            </motion.div>
 
             <Outlet />
         </Fragment>
