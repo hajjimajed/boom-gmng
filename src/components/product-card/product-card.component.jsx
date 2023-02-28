@@ -56,12 +56,7 @@ const ProductCard = ({ product }) => {
     return (
         <div className='product-main-container'>
             <motion.div
-                initial={{ scale: 0, y: 200 }}
-                animate={{ scale: 1, y: 0 }}
-                transition={{
-                    type: "keyframes",
-                    duration: 0.2
-                }}
+
                 whileHover={{ scale: 1.1 }}
                 className='product-card-container'>
                 <div className='image-container'>

@@ -2,14 +2,12 @@ import './products-category.styles.scss'
 
 import { useContext } from 'react';
 import { ProductsContext } from '../../contexts/products.context';
+import { motion } from 'framer-motion';
 
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import ProductCard from '../../components/product-card/product-card.component';
-import Footer from '../../components/footer/footer.component'
-
-import { motion } from 'framer-motion'
 
 const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -18,7 +16,7 @@ const container = {
         scale: 1,
         transition: {
             delayChildren: 0.3,
-            staggerChildren: 0.2
+            staggerChildren: 0.1,
         }
     }
 };
@@ -44,20 +42,21 @@ const ProductsCategory = () => {
 
     return (
         <>
-            <motion.div
-                variants={container}
-                initial="hidden"
-                animate="visible"
+            <div
                 className='category-preview-container'>
-                <div className='preview'>
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    animate="visible"
+                    className='preview'>
 
                     {
                         products &&
-                        products.map((product) => <motion.div variants={item}> <ProductCard key={product.id} product={product} /></motion.div>)
+                        products.map((product) => <motion.div variants={item} key={product.id}> <ProductCard key={product.id} product={product} /></motion.div>)
                     }
 
-                </div>
-            </motion.div>
+                </motion.div>
+            </div>
         </>
 
     )

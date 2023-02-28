@@ -35,6 +35,7 @@
             h1:first-child {
                 color: #06d6a0;
                 font-size: 30px;
+                margin-bottom: 50px;
             }
         }
 
@@ -68,6 +69,14 @@
 @media(max-width:400px) {
     .log-in-form-container {
         width: 320px;
+    }
+
+    .log-in-form-container .welcome-user span h1:first-child {
+        font-size: 20px;
+    }
+
+    .log-in-form-container .welcome-user span h1 {
+        font-size: 30px;
     }
 }
 

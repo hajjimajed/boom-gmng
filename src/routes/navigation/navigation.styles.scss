@@ -297,6 +297,12 @@
     .navigation .main-logo-container {
         width: 17%;
     }
+
+    .navigation .navigation-menu-button div {
+        width: 30%;
+        height: 2px;
+        margin: 1.9px 0;
+    }
 }
 
 @media(max-width:500px) {

@@ -29,13 +29,17 @@
         height: 100%;
 
         .check-logo {
-            margin-top: -50px;
+            width: 130px;
+            height: auto;
+            margin-bottom: 50px;
             filter: invert(62%) sepia(64%) saturate(730%) hue-rotate(113deg) brightness(93%) contrast(95%);
         }
 
-        h1 {
-            margin: 50px 0;
+        .message-sent {
+            font-size: 30px;
+            margin-bottom: 50px;
         }
+
     }
 
     .contact-form {
@@ -95,6 +99,15 @@
     }
 }
 
+@media(max-width:600px) {
+    .contact-form-container .contact-done .message-sent {
+        font-size: 20px;
+    }
+
+    .contact-form-container .contact-done .check-logo {
+        width: 90px;
+    }
+}
 
 @media(max-width:500px) {
     .contact-form-container {

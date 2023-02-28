@@ -29,11 +29,14 @@
         height: 100%;
 
         .check-logo {
+            width: 120px;
+            height: auto;
             margin-top: -150px;
             filter: invert(62%) sepia(64%) saturate(730%) hue-rotate(113deg) brightness(93%) contrast(95%);
         }
 
         h1 {
+            font-size: 30px;
             margin: 50px 0;
         }
     }
@@ -46,6 +49,15 @@
     }
 }
 
+@media(max-width:600px) {
+    .register-form-container .registering-done .check-logo {
+        width: 90px;
+    }
+
+    .register-form-container .registering-done h1 {
+        font-size: 20px;
+    }
+}
 
 @media(max-width:500px) {
     .register-form-container {

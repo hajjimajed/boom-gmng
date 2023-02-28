@@ -14,8 +14,8 @@ const container = {
         opacity: 1,
         scale: 1,
         transition: {
-            delayChildren: 0.3,
-            staggerChildren: 0.2
+            delayChildren: 0.6,
+            staggerChildren: 0.1,
         }
     }
 };
@@ -72,7 +72,14 @@ const ProductsPreview = () => {
 
     return (
         <div className='category-preview-container'>
-            <div className='filters-container'>
+            <motion.div
+                initial={{ opacity: 0, scaleY: 0 }} animate={{ opacity: 1, scaleY: 1 }}
+                transition={{
+                    type: "spring",
+                    duration: 0.5,
+                    delay: 0.3
+                }}
+                className='filters-container'>
                 <div className='search-container'>
                     <input placeholder='Search Game' className='search-bar' type="text" onChange={handleSearchTextChange} />
                     <Loop className='loop-icon' />
@@ -86,7 +93,7 @@ const ProductsPreview = () => {
                         <h1 className={`sort-button ${sortType === 'alphabetical' ? 'active' : ''}`} onClick={() => handleSortTypeChange('alphabetical')}>AZ</h1>
                     </div>
                 </div>
-            </div>
+            </motion.div>
             <motion.div
                 variants={container}
                 initial="hidden"

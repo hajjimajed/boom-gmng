@@ -10,6 +10,8 @@ import { contactMessage } from '../../utils/firebase/firebase';
 
 import { useNavigate } from 'react-router-dom';
 
+import { motion } from 'framer-motion';
+
 
 const defaultFormFields = {
     name: '',
@@ -54,9 +56,45 @@ const ContactForm = () => {
             {
                 isMessageSent ? (
                     <div className='contact-done'>
-                        <Check className='check-logo'></Check>
-                        <h1>Thanks For Your Message !</h1>
-                        <Button onClick={goToStoreHandler}>Check Our Store</Button>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
+                            transition={{
+                                type: "spring",
+                                duration: 0.3
+                            }}
+                        >
+                            <Check className='check-logo'></Check>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, translateY: -30 }} animate={{ opacity: 1, translateY: 0 }}
+                            transition={{
+                                type: "spring",
+                                duration: 0.2,
+                                delay: 0.2
+                            }}
+                        >
+                            <h1 className='message-sent'>Thanks You!</h1>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, translateY: -30 }} animate={{ opacity: 1, translateY: 0 }}
+                            transition={{
+                                type: "spring",
+                                duration: 0.2,
+                                delay: 0.2
+                            }}
+                        >
+                            <h1 className='message-sent'>Message Received!</h1>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, translateY: -30 }} animate={{ opacity: 1, translateY: 0 }}
+                            transition={{
+                                type: "spring",
+                                duration: 0.2,
+                                delay: 0.3
+                            }}
+                        >
+                            <Button onClick={goToStoreHandler}>Check Our Store</Button>
+                        </motion.div>
                     </div>) : (
                     <>
                         <MainLogo className='logo' />
