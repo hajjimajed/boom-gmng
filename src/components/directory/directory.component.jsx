@@ -39,9 +39,6 @@ const slides = [
     { id: 2, bgColor: 'https://i.ibb.co/fFTMnJz/Untitled.png', img: 'https://i.ibb.co/VMSxvkv/pngegg.png', text1: 'became a member', text2: 'register', text3: 'and play', btntxt: 'register', link: 'register' },
     { id: 3, bgColor: 'https://i.ibb.co/42phQrN/Untitled-2.png', img: 'https://i.ibb.co/YhjZ7ZM/pngegg-5.png', text1: 'have a problem ?', text2: 'feel free', text3: 'to contact', btntxt: 'contact', link: 'support' }
 ];
-const images = ['https://i.ibb.co/VTKQTHP/Untitled-1.png',
-    'https://i.ibb.co/fHMdKCd/dylan-nolte-SH-Ijr-Kw-G8c-unsplash.jpg',
-    'https://i.ibb.co/Z8mjmwy/Untitled.png']
 
 const Directory = () => {
 
@@ -132,7 +129,7 @@ const Directory = () => {
                         variants={item}
                         className='shape'>
                         <div className='shape-image'>
-                            <img src="https://images.hdqwalls.com/wallpapers/marvel-spider-man-miles-morales-iz.jpg" alt="" />
+                            <img src="https://i.ibb.co/Pt9NC26/marvel-spider-man-miles-morales-iz-1.jpg" alt="" />
                         </div>
                         <div className='shape-infos'>
                             <div className='shape-info'>
@@ -168,7 +165,7 @@ const Directory = () => {
                         variants={item}
                         className='shape'>
                         <div className='shape-image'>
-                            <img src="https://www.nme.com/wp-content/uploads/2022/05/Multiversus-Key-Art.jpg" alt="" />
+                            <img src="https://i.ibb.co/0qF1CmB/Multiversus-Key-Art-1.jpg" alt="" />
                         </div>
                         <div className='shape-infos'>
                             <div className='shape-info'>
@@ -186,7 +183,7 @@ const Directory = () => {
                         variants={item}
                         className='shape'>
                         <div className='shape-image'>
-                            <img src="https://i.ibb.co/6NTqf1x/Capture-d-cran-2023-02-25-170207.png" alt="" />
+                            <img src="https://i.ibb.co/d5fFSrj/Capture-d-cran-2023-02-25-170207-1.png" alt="" />
                         </div>
                         <div className='shape-infos'>
                             <div className='shape-info'>
